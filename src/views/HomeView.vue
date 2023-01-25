@@ -3,10 +3,11 @@
 	<div class="home">
 		<h2>{{ appTitle }}</h2>
 		<h3>{{ counterData.title }}:</h3>
-		<button @click="decreaseCounter" class="btn">-</button>
+		<button @click="decreaseCounter(1)" class="btn">-</button>
+		<button @click="decreaseCounter(2)" class="btn">--</button>
 		<span class="counter">{{counterData.count}}</span>
-		<button @click="increaseCounter" class="btn">+</button>
-
+		<button @click="increaseCounter(1)" class="btn">+</button>
+		<button @click="increaseCounter(2)" class="btn">++</button>
 		<div class="edit">
 			<h4>Edit Counter Title:</h4>
 			<input v-model="counterData.title" type="text"/>
@@ -27,12 +28,12 @@ const counterData = reactive({
 	title: "My Counter"
 })
 
-const increaseCounter = () => {
-	counterData.count++
+const increaseCounter = amount => {
+	counterData.count += amount
 }
 
-const decreaseCounter = () => {
-	counterData.count--
+const decreaseCounter = amount => {
+	counterData.count -= amount
 }
 </script>
 
