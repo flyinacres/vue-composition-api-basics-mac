@@ -13,7 +13,7 @@
 		<p>This counter is {{  oddOrEven }}</p>
 		<div class="edit">
 			<h4>Edit Counter Title:</h4>
-			<input v-model="counterData.title" type="text"/>
+			<input v-autofocus v-model="counterData.title" type="text"/>
 		</div>
 	</div>
 
@@ -63,8 +63,15 @@ const decreaseCounter = amount => {
 	counterData.count -= amount
 }
 
-
+// Directives must be camel case, starting with lower case v
+// vAutofocus becomes v-autofocus.  Don't use vAutoFocus!
+const vAutofocus = {
+	mounted: (el) => {
+		el.focus()
+	}
+}
 </script>
+
 
 <style scoped>
 .home {
