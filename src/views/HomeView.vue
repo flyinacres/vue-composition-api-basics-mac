@@ -20,9 +20,14 @@
 </template>
 
 <script setup>
-import {reactive, computed, watch, onBeforeUpdate, onUpdated} from 'vue'
+import {reactive, computed, watch, onMounted} from 'vue'
 
 const appTitle = "My OK Counter App"
+
+//  Multiple hooks of the same type allowed
+onMounted(() => {
+	console.log('Do Stuff related to the title')
+})
 
 const oddOrEven = computed(() => {
 	if (counterData.count % 2 === 0) {
@@ -35,6 +40,11 @@ const oddOrEven = computed(() => {
 const counterData = reactive({
 	count: 0,
 	title: "My Counter"
+})
+
+// These should be in appropriate sections of code
+onMounted(() => {
+	console.log('Do Stuff related to counter')
 })
 
 // Note how the data has to be referenced
@@ -53,13 +63,6 @@ const decreaseCounter = amount => {
 	counterData.count -= amount
 }
 
-// These are related to the updating of the template
-onBeforeUpdate(() => {
-	console.log("onBeforeUpdate")
-})
-onUpdated(() => {
-	console.log('onUpdated')
-})
 
 </script>
 
