@@ -20,9 +20,7 @@
 </template>
 
 <script setup>
-import {reactive, computed, watch, 
-	onBeforeMount, onMounted, onBeforeUnmount, onUnmounted,
-	onActivated, onDeactivated} from 'vue'
+import {reactive, computed, watch, onBeforeUpdate, onUpdated} from 'vue'
 
 const appTitle = "My OK Counter App"
 
@@ -55,26 +53,14 @@ const decreaseCounter = amount => {
 	counterData.count -= amount
 }
 
-// There are no specific created hooks as all of the code
-// in the setup script is run just before creation
-onBeforeMount(() => {
-	console.log("onBeforeMount")
+// These are related to the updating of the template
+onBeforeUpdate(() => {
+	console.log("onBeforeUpdate")
 })
-onMounted(() => {
-	console.log("onMounted")
+onUpdated(() => {
+	console.log('onUpdated')
 })
-onBeforeUnmount(() => {
-	console.log("onBeforeUnmount")
-})
-onUnmounted(() => {
-	console.log("onUnmounted")
-})
-onActivated(() => {
-	console.log("onActivated")
-})
-onDeactivated(() => {
-	console.log("onDeactivated")
-})
+
 </script>
 
 <style scoped>
