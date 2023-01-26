@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import {ref, reactive, computed, watch, onMounted} from 'vue'
+import {ref, reactive, computed, watch, onMounted, nextTick} from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
 
 // Need to access template refs in this way
@@ -61,6 +61,11 @@ watch(() => counterData.count, (newCount) => {
 
 const increaseCounter = amount => {
 	counterData.count += amount
+
+	// This could also be done using 'await', if the method is declared async
+	nextTick(() => {
+		console.log("Do something after next tick")
+	})
 }
 
 const decreaseCounter = amount => {
