@@ -21,6 +21,7 @@
 
 <script setup>
 import {reactive, computed, watch, onMounted} from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus'
 
 const appTitle = "My OK Counter App"
 
@@ -63,13 +64,7 @@ const decreaseCounter = amount => {
 	counterData.count -= amount
 }
 
-// Directives must be camel case, starting with lower case v
-// vAutofocus becomes v-autofocus.  Don't use vAutoFocus!
-const vAutofocus = {
-	mounted: (el) => {
-		el.focus()
-	}
-}
+
 </script>
 
 
