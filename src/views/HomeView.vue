@@ -1,7 +1,7 @@
 
 <template>
 	<div class="home">
-		<h2>{{ appTitle }}</h2>
+		<h2 ref="appTitleRef">{{ appTitle }}</h2>
 		<h3>{{ counterData.title }}:</h3>
 		<div>
 			<button @click="decreaseCounter(1)" class="btn">-</button>
@@ -20,14 +20,17 @@
 </template>
 
 <script setup>
-import {reactive, computed, watch, onMounted} from 'vue'
+import {ref, reactive, computed, watch, onMounted} from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
+
+// Need to access template refs in this way
+const appTitleRef = ref(null)
 
 const appTitle = "My OK Counter App"
 
 //  Multiple hooks of the same type allowed
 onMounted(() => {
-	console.log('Do Stuff related to the title')
+	console.log(`The app title is ${appTitleRef.value.offsetWidth } pixels wide`)
 })
 
 const oddOrEven = computed(() => {
