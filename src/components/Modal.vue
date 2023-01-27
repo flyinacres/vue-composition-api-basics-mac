@@ -2,8 +2,9 @@
 
 	<teleport to=".modals-container">
 		<div class="modal">
-			<h1>This is a Modal</h1>
-			<p>Et ea nisi commodo laborum Lorem in. Esse veniam quis enim tempor sint duis ipsum nulla tempor tempor. Pariatur nulla ipsum veniam sit aliqua elit eu aute aute quis. Amet ea exercitation laborum quis fugiat consequat. Id amet magna commodo enim ullamco id nisi amet ut et duis dolore pariatur eiusmod. Non anim culpa excepteur irure Lorem duis.</p>
+			<h1><slot name="title" /></h1>
+			<slot />
+			<!--<pre> {{  $slots.title() }}</pre>-->
 			<button >Hide modal</button>
 		</div>
 	</teleport>
@@ -21,5 +22,6 @@
 	width: 100%;
 	height: 100%;
 	z-index: 1;
+	color: black;
 }
 </style>
