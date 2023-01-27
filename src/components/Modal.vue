@@ -27,10 +27,10 @@ const props = defineProps({
 })
 
 // How to use emits
-const emit = defineEmits(['hideModal'])
+const emit = defineEmits(['update:modelValue'])
 
 const handleButtonClick = () => {
-	emit('hideModal')
+	emit('update:modelValue', false)
 }
 </script>
 

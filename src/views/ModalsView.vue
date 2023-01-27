@@ -4,8 +4,7 @@
 		<button @click="showModal=true">Show Modal</button>
 		<Modal 
 			v-model="showModal"
-			title="My Modal Title vis props"
-			@hideModal="showModal=false">
+			title="My Modal Title vis props">
 			<p>Laboris laboris anim laboris ullamco consequat consequat tempor. Deserunt voluptate culpa esse enim qui Lorem velit culpa amet enim aliquip. Consequat sit velit non cillum aliquip nisi reprehenderit. Dolore ullamco eiusmod Lorem proident do velit labore. Et consectetur qui ut incididunt voluptate anim laboris ex. Aliquip incididunt exercitation laborum adipisicing nulla velit laboris deserunt dolore.</p>
 		</Modal>
 	</div>
