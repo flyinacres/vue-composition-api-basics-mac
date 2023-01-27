@@ -7,6 +7,9 @@
 			<h1>{{ title }}</h1>
 			<slot />
 			<button @click="handleButtonClick()">Hide modal</button>
+			<div>
+				Username is: {{ userData.username }}
+			</div>
 		</div>
 	</teleport>
 
@@ -23,6 +26,9 @@ const props = defineProps({
 	title: {
 		type: String,
 		default: 'No title specified'
+	},
+	userData: {
+		type: Object
 	}
 })
 
