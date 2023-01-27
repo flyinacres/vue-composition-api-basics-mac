@@ -2,9 +2,8 @@
 
 	<teleport to=".modals-container">
 		<div class="modal">
-			<h1><slot name="title" /></h1>
+			<h1>{{ title }}</h1>
 			<slot />
-			<pre> {{  $slots.title }}</pre>
 			<button >Hide modal</button>
 		</div>
 	</teleport>
@@ -12,12 +11,13 @@
 </template>
 
 <script setup>
-import { useSlots } from 'vue'
-
-const slots = useSlots()
-
-console.log(slots.title())
-
+// How to use props in Vue 3
+const props = defineProps({
+	title: {
+		type: String,
+		default: 'No title specified'
+	}
+})
 </script>
 
 
