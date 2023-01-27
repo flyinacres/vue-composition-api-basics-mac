@@ -8,7 +8,7 @@
 			<slot />
 			<button @click="handleButtonClick()">Hide modal</button>
 			<div>
-				Username is: {{ userData.username }}
+				User name is {{ userData.username }}
 			</div>
 		</div>
 	</teleport>
@@ -16,6 +16,8 @@
 </template>
 
 <script setup>
+import { inject } from 'vue'
+
 // How to use props in Vue 3
 // Note the special modelValue prop
 const props = defineProps({
@@ -26,9 +28,6 @@ const props = defineProps({
 	title: {
 		type: String,
 		default: 'No title specified'
-	},
-	userData: {
-		type: Object
 	}
 })
 
@@ -38,6 +37,9 @@ const emit = defineEmits(['update:modelValue'])
 const handleButtonClick = () => {
 	emit('update:modelValue', false)
 }
+
+// Ensure that the data is available here
+const userData = inject('userData')
 </script>
 
 

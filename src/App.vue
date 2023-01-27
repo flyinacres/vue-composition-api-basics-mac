@@ -9,17 +9,20 @@
 	</nav>
 
 
-<RouterView :userData="userData"/>
+<RouterView/>
 </template>
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import {reactive} from 'vue'
+import {reactive, provide} from 'vue'
 
 const userData = reactive({
 	name: 'Danny',
 	username: 'dannyconell'
 })
+
+// Basically creating a global for the app...
+provide('userData', userData)
 </script>
 
 <style scoped>
