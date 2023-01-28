@@ -2,13 +2,17 @@
 // The file and function have the standard naming convention
 import {ref, reactive, computed, watch, onMounted, nextTick} from 'vue'
 
+// By moving this outside the function we make the state global accross all usages of
+// this composable
+
+const counterData = reactive({
+	count: 0,
+	title: "My Counter"
+})
+
 export function useCounter() {
 
 
-	const counterData = reactive({
-		count: 0,
-		title: "My Counter"
-	})
 	
 	// These should be in appropriate sections of code
 	onMounted(() => {

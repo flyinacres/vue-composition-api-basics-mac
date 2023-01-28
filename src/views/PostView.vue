@@ -9,12 +9,20 @@
 			</li>
 		</ul>
 		<textarea v-autofocus/>
+		<div>
+			<button class="counter-button" :class="{'yellow' : oddOrEven === 'odd' }"   @click="increaseCounter(1)">{{counterData.count}}</button>
+		</div>
 	</div>
 </template>
 
 <script setup>
 import { vAutofocus } from '@/directives/vAutofocus'
 import { ref } from 'vue'
+import {useCounter} from '@/use/useCounter'
+
+// Note how the data cannot be directly destructured from the import, but must be done 
+// indirectly
+const {increaseCounter, oddOrEven, counterData} = useCounter()
 
 const posts = ref([
 	{
@@ -34,5 +42,14 @@ const posts = ref([
 
 <style scoped>
 ul { margin-bottom: 30px
+}
+
+.counter-button {
+	font-size: 60px;
+	width: 100%;
+	background-color: pink;
+}
+.counter-button.yellow {
+	background-color: yellow;
 }
 </style>
