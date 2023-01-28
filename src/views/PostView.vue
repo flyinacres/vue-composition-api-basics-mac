@@ -10,7 +10,7 @@
 		</ul>
 		<textarea v-autofocus/>
 		<div>
-			<button class="counter-button" :class="{'yellow' : oddOrEven === 'odd' }"   @click="increaseCounter(1)">{{counterData.count}}</button>
+			<button class="counter-button" :class="{'yellow' : counter.oddOrEven === 'odd' }"   @click="counter.increaseCounter(1)">{{counter.count}}</button>
 		</div>
 	</div>
 </template>
@@ -18,11 +18,10 @@
 <script setup>
 import { vAutofocus } from '@/directives/vAutofocus'
 import { ref } from 'vue'
-import {useCounter} from '@/use/useCounter'
+import {useCounterStore} from '@/stores/counter'
 
-// Note how the data cannot be directly destructured from the import, but must be done 
-// indirectly
-const {increaseCounter, oddOrEven, counterData} = useCounter()
+const counter = useCounterStore()
+
 
 const posts = ref([
 	{
